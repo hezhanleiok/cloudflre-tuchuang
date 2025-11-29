@@ -21,3 +21,22 @@ CREATE TABLE IF NOT EXISTS images (
     filename TEXT,
     created_at INTEGER
 );
+```
+
+### 2. 部署后端 (Worker)
+1.  在 Worker 设置 -> 变量中，添加绑定：
+    * 变量名：`MY_R2` -> 选择你的 R2 存储桶
+    * 变量名：`DB` -> 选择你的 D1 数据库
+2.  将 `worker.js` 的内容复制到 Worker 编辑器。
+3.  **🚩 修改代码第 21 行：** 设置你的管理员查看密码。
+4.  **🚩 修改代码第 53 行：** 填入你的 R2 访问域名（例如 `https://r2.example.com/`）。
+5.  点击部署。
+
+### 3. 部署前端 (Pages)
+1.  打开 `index.html`。
+2.  **🚩 修改代码第 332 行：** 填入你上一步部署好的 Worker 服务域名。
+3.  将 `index.html` 上传到 Cloudflare Pages 或 GitHub Pages。
+
+## ✨ 使用说明
+* **普通用户：** 上传后可在“我的相册”查看自己本机的上传记录（基于浏览器缓存）。
+* **管理员：** 在“我的相册”页面底部点击“管理员入口”，输入密码即可查看全站所有图片。
